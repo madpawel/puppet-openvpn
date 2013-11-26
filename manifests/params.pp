@@ -39,8 +39,8 @@ class openvpn::params {
         $easyrsa_source = '/usr/share/doc/openvpn/examples/easy-rsa/2.0'
       }
     }
-    default: { # Debian/Ubuntu
-      if($::operatingsystemmajrelease == 'jessie/sid'){
+    default: { # Debian 7 /Ubuntu 
+      if($::operatingsystemmajrelease =~ /(7.\d+|jessie|sid|wheezy)/ ){
       package { 'easy-rsa':
             ensure => installed,
           }
